@@ -1,33 +1,34 @@
 ---
 template: default.html
-title: Better, Simpler Grid Systems
-excerpt: Flexbox gives us most of the features we want from a grid system out of the box. And sizing and alignment are just one or two properties away.
+title: 더 나은, 간단한 그리드 시스템
+excerpt: Flexbox는 그리드 시스템에 필요한 대부분의 기능을 제공합니다. 사이즈 조절 및 정렬은 그냥 수 많은 속성 중 하나에 불과합니다.
 ---
 
-Most grid systems today use one of two layout methods: `float` or `inline-block`. But neither of these methods were really intended to be used for layout and as a result have pretty significant problems and limitations.
+대부분의 그리드 시스템은 `float` 혹은 `inline-block` 레이아웃 방식을 사용합니다. 하지만 이 방법들은 모두 실제로 레이아웃을 위해 사용되도록 의도된 방법이 아닙니다. 그 결과로, 꽤 중요한 문제와 한계를 가집니다.
 
-Using floats requires clearing them which has a whole host of layout issues, most notoriously that clearing an element sometimes forces it below an unrelated part of the page (take this [Bootstrap issue](https://github.com/twbs/bootstrap/issues/295#issuecomment-2282969) for example). In addition, clearing floats usually requires using both before and after pseudo-elements, preventing you from using them for something else.
+float는 많은 레이아웃 문제를 가지고 있기 때문에 클리어(clear)하는 것이 요구됩니다. 가장 악명높은 문제는 요소를 클리어 했을 때 가끔 페이지 내 상관없는 부분 아래로 강제로 이동되는 것입니다. (예를 들어, 이 [Bootstrap issue](https://github.com/twbs/bootstrap/issues/295#issuecomment-2282969)를 참고하세요.) 게다가, float된 요소를 클리어하는 것은 대개 앞 뒤로 가상 요소(pseudo-element)를 필요로 하며, 이는 다른 용도로 사용할 수 없습니다.
 
-Inline block layouts must address the problem of [white-space between inline-block items](http://css-tricks.com/fighting-the-space-between-inline-block-elements/), and all of the [solutions](http://davidwalsh.name/remove-whitespace-inline-block) to that problem are [hacky](https://github.com/suitcss/components-grid/blob/master/lib/grid.css#L30) and [annoying](https://twitter.com/thierrykoblentz/status/305152267374428160).
+Inline block 레이아웃은 [inline-block 사이의 공백 문제](http://css-tricks.com/fighting-the-space-between-inline-block-elements/)를 해결해야 합니다. 더구나 이 문제에 대한 모든 [해결방법](http://davidwalsh.name/remove-whitespace-inline-block)은 [더럽거나](https://github.com/suitcss/components-grid/blob/master/lib/grid.css#L30) [성가십니다](https://twitter.com/thierrykoblentz/status/305152267374428160).
 
-Flexbox not only eliminates these problems, it opens up an entirely new world of possibilities.
+Flexbox는 이러한 문제를 해결할 뿐만 아니라, 완전히 새로운 가능성의 세상을 열었습니다.
 
-## Features of a Flexbox Grid System
+## Flexbox 그리드 시스템의 기능
 
-Grid systems usually come with a myriad of sizing options, but the vast majority of the time you just want two or three elements side-by-side. Given this, why should we be required to put sizing classes on every single cell?
+그리드 시스템은 종종 수 많은 크기 옵션을 제공합니다. 하지만 대다수의 경우 두 세개의 요소를 나란히 배치하기만 하면 됩니다. 그렇다면, 왜 우리는 모든 각각의 셀(Cell)에 크기를 지정하는 클래스를 필요로 해야할까요?
 
-Listed below are some of my criteria for an ideal grid system. Fortunately, with Flexbox we get most of these features for free.
+아래의 리스트는 이상적인 그리드 시스템에 대한 저의 기준입니다. 다행히도, Flexbox를 사용하면 이러한 기능의 대부분을 아주 쉽게 구현할 수 있습니다.
 
-- By default, each grid cell is the same width and height as every other cell in the row. Basically they all size to fit by default.
-- For finer control, you can add sizing classes to individual cells. Without these classes, the cells simply divide up the available space as usual.
-- For responsive grids, you can add media query-specific classes to the cells.
-- Individual cells can be aligned vertically to the top, bottom, or middle.
-- When you want all of the cells in a grid to have the same sizing, media, or alignment values, you should be able to just add a single class to the container to avoid unnecessary repetition.
-- Grids can be nested as many levels deep as needed.
+- 같은 행에 있는 그리드 셀은 기본 값으로 같은 너비 및 높이를 가집니다. 기본적으로 크기가 공간에 들어맞습니다.
+- 보다 세밀한 제어를 위해, 각각의 셀에 크기를 지정하는 클래스를 추가할 수 있습니다. 이러한 클래스가 없다면, 각 셀은 원래처럼 빈 공간을 알아서 나눕니다.
+- 반응형 그리드를 위해, 미디어 쿼리 관련 클래스를 셀에 추가할 수 있습니다.
+- 각각의 셀은 수직적으로 상단, 하단 및 중단으로 정렬할 수 있습니다.
+- 그리드 내의 모든 셀에 동일한 크기나 미디어, 정렬 값을 지정하기 위해서 불필요한 반복을 하지않고, 컨테이너에 하나의 클래스를 추가하기만 하면 됩니다.
+- 그리드는 원하는 만큼 깊게 중첩될 수 있습니다.
 
-### Basic Grids
 
-The grid cells below do not specify any widths, they just naturally space themselves equally and expand to fit the entire row. They're also equal height by default.
+### 기본 그리드
+
+아래 그리드 셀은 어떠한 너비값도 지정받지 않았습니다. 자연스럽게 스스로 같은 공간을 가지고 행 전체로 확장되었습니다. 또한 기본적으로 높이 값이 같습니다.
 
 <div class="Grid Grid--gutters u-textCenter">
   <div class="Grid-cell">
@@ -68,7 +69,7 @@ The grid cells below do not specify any widths, they just naturally space themse
 <div class="Grid Grid--gutters Grid--flexCells">
   <div class="Grid-cell">
     <div class="Demo">
-      Full-height, even when my content doesn't fill the space.
+      컨텐츠가 공간을 메우지 않아도, 꽉찬 높이 값을 가집니다.
     </div>
   </div>
 
@@ -79,11 +80,11 @@ The grid cells below do not specify any widths, they just naturally space themse
   </div>
 </div>
 
-### Individual Sizing
+### 개별 사이징
 
-When equal widths aren't what you want, you can add sizing classes to individual cells. Cells without sizing classes simply divide up the remaining space as normal.
+모두 같은 너비를 가지는 것을 원하지 않는다면, 각각의 셀에 크기를 지정하는 클래스를 추가할 수 있습니다. 사이즈를 지정하는 클래스가 없는 셀들은 간단히 원래대로 남은 공간을 나누어 가집니다.
 
-The cells below labeled "auto" do not have sizing classes specified.
+"auto"이라는 단어가 붙은 셀은 사이즈를 지정하는 클래스가 없는 셀입니다.
 
 <div class="Grid Grid--gutters u-textCenter">
   <div class="Grid-cell u-1of2">
@@ -118,11 +119,11 @@ The cells below labeled "auto" do not have sizing classes specified.
   </div>
 </div>
 
-### Responsive
+### 반응형
 
-Responsive Grids work by adding media classes to the Grid cells or containers. When those media values are met, the grids automatically adjust accordingly.
+반응형 그리드는 그리드 셀 혹은 컨테이너에 미디어 클래스를 추가함으로서 동작합니다. 이러한 미디어 값이 충족되면 그리드는 자동적으로 적절히 조정됩니다.
 
-The cells below should be full width by default and scaled to fit above `48em`. Resize your browser to see them in action.
+아래에 있는 셀들은 기본적으로 꽉찬 너비를 가져야하고 `48em` 이상에 맞춰 확장됩니다. 실제 동작을 보기 위해서 브라우저 크기를 조절해보세요.
 
 <div class="Grid Grid--gutters Grid--full large-Grid--fit u-textCenter">
   <div class="Grid-cell">
@@ -146,7 +147,7 @@ The cells below should be full width by default and scaled to fit above `48em`. 
 
 ### Grid-ception
 
-Grid components are infinitely nestable inside of other grid components.
+그리드 컴포넌트끼리 무한으로 중첩할 수 있습니다.
 
 <div class="Grid Grid--gutters Grid--flexCells u-textCenter">
   <div class="Grid-cell">
@@ -175,14 +176,14 @@ Grid components are infinitely nestable inside of other grid components.
   </div>
 </div>
 
-## Alignment Features
+## 정렬 기능
 
-### Top-aligned Grid Cells
+### 그리드 셀 상단 정렬
 
 <div class="Grid Grid--gutters Grid--top">
   <div class="Grid-cell">
     <div class="Demo">
-      This cell should be top-aligned.
+      이 셀은 상단에 정렬됩니다.
     </div>
   </div>
   <div class="Grid-cell u-1of2">
@@ -192,17 +193,17 @@ Grid components are infinitely nestable inside of other grid components.
   </div>
   <div class="Grid-cell">
     <div class="Demo">
-      This cell should be top-aligned.
+      이 셀은 상단에 정렬됩니다.
     </div>
   </div>
 </div>
 
-### Bottom-aligned Grid Cells
+### 그리드 셀 하단 정렬
 
 <div class="Grid Grid--gutters Grid--bottom">
   <div class="Grid-cell">
     <div class="Demo">
-      This cell should be bottom-aligned.
+      이 셀은 하단에 정렬됩니다.
     </div>
   </div>
   <div class="Grid-cell">
@@ -212,17 +213,17 @@ Grid components are infinitely nestable inside of other grid components.
   </div>
   <div class="Grid-cell">
     <div class="Demo">
-      This cell should be bottom-aligned.
+      이 셀은 하단에 정렬됩니다.
     </div>
   </div>
 </div>
 
-### Vertically Centered Grid Cells
+### 그리드 셀 수직 중앙 정렬
 
 <div class="Grid Grid--gutters Grid--center">
   <div class="Grid-cell">
     <div class="Demo">
-      This cell should be vertically-centered with the cell to its right.
+      이 셀은 오른쪽에 있는 셀의 수직 중앙으로 정렬됩니다.
     </div>
   </div>
   <div class="Grid-cell">
@@ -231,12 +232,12 @@ Grid components are infinitely nestable inside of other grid components.
   </div>
 </div>
 
-### Mixed Vertical Alignment
+### 수직 정렬 섞기
 
 <div class="Grid Grid--gutters">
   <div class="Grid-cell Grid-cell--top">
     <div class="Demo">
-      This cell should be top aligned.
+      이 셀은 상단에 정렬됩니다.
     </div>
   </div>
   <div class="Grid-cell">
@@ -245,17 +246,17 @@ Grid components are infinitely nestable inside of other grid components.
   </div>
   <div class="Grid-cell Grid-cell--center">
     <div class="Demo">
-      This cell should be center-aligned.
+      이 셀은 중단에 정렬됩니다.
     </div>
   </div>
   <div class="Grid-cell Grid-cell--bottom">
     <div class="Demo">
-      This cell should be bottom-aligned.
+      이 셀은 하단에 정렬됩니다.
     </div>
   </div>
 </div>
 
-## The HTML
+## HTML
 
 ```html
 <div class="Grid">
@@ -265,9 +266,9 @@ Grid components are infinitely nestable inside of other grid components.
 </div>
 ```
 
-## The CSS
+## CSS
 
-### Basic Grid Styles
+### 기본 그리드 스타일
 
 ```css
 .Grid {
@@ -279,7 +280,7 @@ Grid components are infinitely nestable inside of other grid components.
 }
 ```
 
-### Grid Style Modifiers
+### 그리드 스타일 수정자(modifier)
 
 ```css
 /* With gutters */
@@ -313,7 +314,7 @@ Grid components are infinitely nestable inside of other grid components.
 }
 ```
 
-### Responsive Modifiers (a mobile-first approach)
+### 반응형 수정자 (모바일 퍼스트 접근)
 
 ```css
 /* Base classes for all media */
@@ -372,4 +373,4 @@ Grid components are infinitely nestable inside of other grid components.
 }
 ```
 
-View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/grid.css) for the `Grid` component used in this demo on Github.
+이 데모에서 쓰인 그리드 컴포넌트의 전체 [소스 코드](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/grid.css)는 GitHub에서 보실 수 있습니다.

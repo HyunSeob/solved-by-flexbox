@@ -27,12 +27,3 @@ npm start -- -p 8080
 ```
 
 In addition to building the site and serving it locally, this will also listen for any changes and rebuild the site as needed. This allows you to play around with the code, refresh the browser, and see your changes instantly.
-
-## Translations
-
-The following translations have been graciously provided by the community:
-
-* [Chinese](https://hufan-akari.github.io/solved-by-flexbox/)
-* [Japanese](http://hashrock.github.io/solved-by-flexbox-ja/)
-
-Please note that translations are unofficial and may be inaccurate or out of date. To submit your own translation, please submit a [pull request](https://github.com/philipwalton/solved-by-flexbox/pull/new/master) or [open an issue](https://github.com/philipwalton/solved-by-flexbox/issues/new) and link to your translated content.

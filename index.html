@@ -4,17 +4,17 @@ template: home.html
 
 <section class="Section">
   <div class="Container">
-    <h2 class="Section-heading">Introduction</h2>
-    <p>CSS has been lacking proper layout mechanisms for far too long. Transitions, animations, filters, all of these are great and useful additions to the language, but they don't address the major problems that Web developers have been complaining about for what seems like an eternity.</p>
-    <p>Finally, thanks to <a href="http://www.w3.org/TR/css3-flexbox/">Flexbox</a>, we have a solution.</p>
-    <p>This site is not another CSS framework. Instead, its purpose is to showcase problems once hard or impossible to solve with CSS alone, now made trivially easy with Flexbox. And with the recent release of Internet Explorer 11 and Safari 6.1, the latest Flexbox spec is now supported in every modern browser.</p>
-    <p>Check out the demos below. View the styles in the Web inspector or dive into <a href="https://github.com/philipwalton/solved-by-flexbox">the source</a> to see just how easy CSS layout will become once Flexbox becomes mainstream.</p>
+    <h2 class="Section-heading">서론</h2>
+    <p>CSS는 오랫동안 적절한 레이아웃 메커니즘이 부족했습니다. 트랜슬레이션(Translation), 애니메이션, 필터, 이들은 모두 훌륭하고 유용한 추가기능이지만, 그것들은 웹 개발자들이 끝없이 불평하던 것에 대해 다루지 않습니다.</p>
+    <p>마침내, 우리는 <a href="http://www.w3.org/TR/css3-flexbox/">Flexbox</a>라는 해결책을 갖게 되었습니다.</p>
+    <p>이 사이트는 CSS 프레임워크가 아닙니다. CSS로만은 해결하기 어려웠거나 해결하는 게 불가능했지만 Flexbox를 통해 아주 쉽게 해결할 수 있는 문제들을 소개하는 사이트입니다. 또한, 최근 Internet Explore 11과 Safari 6.1이 배포되면서, 최신 Flexbox 스펙은 모든 모던 브라우저에서 지원되기 시작했습니다.</p>
+    <p>아래의 데모들을 참고하세요. Web inspector로 스타일을 찍어보거나, <a href="https://github.com/philipwalton/solved-by-flexbox">소스 코드</a>를 직접 보면서 Flexbox가 CSS 레이아웃의 주류가 되는 것이 얼마나 쉬울 지 확인해보세요.</p>
   </div>
 </section>
 
 <section class="Section">
   <div class="Container">
-    <h2 class="Section-heading">Showcase</h2>
+    <h2 class="Section-heading">둘러보기</h2>
     <ul class="Grid Grid--guttersLg">
       {% for demo in site.demos %}
         <li class="Grid-cell u-full u-med-1of2 u-large-1of3">
@@ -35,7 +35,7 @@ template: home.html
 
 <section class="Section">
   <div class="Container">
-    <h2 class="Section-heading">Browser Support</h2>
+    <h2 class="Section-heading">브라우저 지원</h2>
 
     <ul class="Grid Grid--guttersLg Grid--justifyCenter">
       <li class="Grid-cell Grid-cell--autoSize">
@@ -76,34 +76,29 @@ template: home.html
       </li>
     </ul>
 
-    <h3 class="Section-heading">Caveats and Known Issues</h3>
+    <h3 class="Section-heading">주의사항 및 알려진 문제</h3>
     <ul class="Section-list">
-      <li>IE 10 has Flexbox support but for a <a href="http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/">draft version</a> of the current spec: (<code>display:flexbox</code>).</li>
-      <li>Safari 6 and earlier support the <a href="http://www.w3.org/TR/2009/WD-css3-flexbox-20090723/">original</a> Flexbox syntax, which is now obsolete: (<code>display:box</code>).</li>
-      <li>Firefox 27 and earlier do not support multi-line flexboxes. See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=702508">this bug</a> for more details.</li>
-      <li>For a full browser support comparison, check out <a href="http://caniuse.com/flexbox">caniuse.com/flexbox</a></li>
+      <li>IE 10은 Flexbox를 지원하지만 현재 스펙의 <a href="http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/">초안</a>(<code>display:flexbox</code>)만을 지원합니다.</li>
+      <li>Safari 6 및 구버전은 현재는 사라진 Flexbox 문법의 <a href="http://www.w3.org/TR/2009/WD-css3-flexbox-20090723/">원래 버전</a>(<code>display:box</code>)을 지원합니다.</li>
+      <li>Firefox 27 및 구버전은 여러 줄에 걸친 Flexbox를 지원하지 않습니다. 자세한 내용은 이 <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=702508">버그</a>를 참조하세요.</li>
+      <li>전체 브라우저 지원 비교를 보고 싶다면 <a href="http://caniuse.com/flexbox">caniuse.com/flexbox</a>를 참조하세요.</li>
     </ul>
   </div>
 </section>
 
 <section class="Section">
   <div class="Container">
-    <h2 class="Section-heading">About the Code</h2>
-    <p>All of the code samples on this site show how to solve a particular design problem with Flexbox. They show just the code that's needed to make the demos work in a spec-compliant browser. Some browsers do not fully comply with the latest version of the spec, so sadly, a few workarounds were necessary.</p>
-    <p>Workarounds for non-compliant browsers are not shown in the code samples, but if you're curious about those implementation details, you can check out the source files. Each demo links to its source, and all browser-specific workarounds are well-documented, so don't be afraid to take a look.</p>
-    <p>The vendor prefixing and translating of current flex properties to their legacy equivalents is all handled by <a href="https://github.com/ai/autoprefixer">autoprefixer</a>. If you're writing Flexbox code and not using autoprefixer, well, you're making a horrible mistake.</p>
-    <p>The class naming convention used in the code samples and source files is taken from <a href="https://github.com/suitcss/suit">SUIT CSS</a>, which is based on BEM methodologies. Each example includes one or more reusable CSS components allowing you to adapt or copy these patterns in to your own projects. Links are provided to their respective components on each example page.</p>
-    <p>If you find a mistake or would like to suggest an additional example, feel free to open an issue or submit a pull request on <a href="https://github.com/philipwalton/solved-by-flexbox">Github</a>.</p>
+    <h2 class="Section-heading">코드에 대해서</h2>
+    <p>이 사이트에 있는 코드는 모두 Flexbox로 특정한 디자인 문제를 해결하는 방법입니다. 모든 코드는 사양이 호환되는 브라우저에서 데모를 작동시키는데 필요한 코드만 보여줍니다. 특정 브라우저에서는 Flexbox 스펙의 마지막 버전을 완전히 준수하지 않으므로 안타깝게도 몇 가지 대응책이 필요합니다.</p>
+    <p>완전히 사양이 호환되지 않는 브라우저를 위한 대응책은 코드 예제에는 나타나 있지 않습니다. 그러나 구현 세부사항에 관심이 있다면 소스 파일을 체크해보시기 바랍니다. 각각의 데모는 소스코드를 링크하고 있으며, 특정 브라우저를 위한 대응책도 모두 잘 문서화되어 있습니다. 그러니 코드보는 것을 두려워할 필요가 없습니다.</p>
+    <p>현재의 Flex 속성을 각 벤더(Vendor)별로 Prefixing 하고 번역(Translating)하는 것은 모두 <a href="https://github.com/ai/autoprefixer">autoprefixer</a>가 처리하고 있습니다. 만약 Flexbox 코드를 작성하면서 autoprefixer를 사용하지 않는다면 끔찍한 실수를 하고 계신 겁니다.</p>
+    <p>코드 예제 및 소스 코드에서 사용하고 있는 클래스 작명 컨벤션은 <a href="https://github.com/suitcss/suit">SUIT CSS</a>에서 온 것이며 이 프로젝트는 BEM 방법론에 기초하고 있습니다. 각 예제는 하나 이상의 재사용 가능한 CSS 컴포넌트를 포함하고 있으므로 이 패턴을 당신의 프로젝트에 적용하거나 복사할 수 있습니다. 링크는 각 예제 페이지의 각각의 컴포넌트에 의해 제공됩니다.</p>
+    <p>만약 어떤 실수를 찾았거나 추가적인 예제를 제안하고 싶다면, <a href="https://github.com/philipwalton/solved-by-flexbox">Github</a>에 자유롭게 Issue를 남겨주시거나 Pull Request를 보내주시기 바랍니다.</p>
   </div>
 </section>
 <section class="Section">
   <div class="Container">
-    <h2 class="Section-heading">Translations</h2>
-    <p>The following translations have been graciously provided by the community:</p>
-    <ul class="Section-list">
-      <li><a href="https://hufan-akari.github.io/solved-by-flexbox/">Chinese</a></li>
-      <li><a href="http://hashrock.github.io/solved-by-flexbox-ja/">Japanese</a></li>
-    </ul>
-    <p>Please note that translations are unofficial and may be inaccurate or out of date. To submit your own translation, please submit a <a href="https://github.com/philipwalton/solved-by-flexbox/pull/new/master" class="rich-diff-level-one">pull request</a> or <a href="https://github.com/philipwalton/solved-by-flexbox/issues/new" class="rich-diff-level-one">open an issue</a> on Github and link to your translated content.</p>
+    <h2 class="Section-heading">한국어 번역</h2>
+    <p>한국어 번역은 <a href="https://github.com/HyunSeob">@hyunseob</a>이 개인적으로 진행하였습니다. 오탈자나 더욱 매끄러운 번역은 이 <a href="https://github.com/HyunSeob/solved-by-flexbox-kr">레포지토리</a>에 Issue를 남겨주시거나 kr 브랜치로 Pull Request를 보내주시기 바랍니다. 감사합니다.</p>
   </div>
 </section>

@@ -1,18 +1,18 @@
 ---
 template: default.html
-title: Input Add-ons
-excerpt: Creating full-width, fluid input/button pairs has been impossible for most of the history of CSS. With Flexbox it couldn't be easier.
+title: Input 추가 요소
+excerpt: 꽉찬 너비를 가진 유연한 input/버튼 쌍을 만드는 것은 지금까지의 CSS로는 거의 불가능했습니다. Flexbox는 이를 구현하는 가장 쉬운 방법입니다.
 ---
 
-Because of the way input sizing works in CSS, it's almost impossible to append or prepend another element to it and have the input field behave fluidly and take up the remaining space.
+CSS에서 input의 크기가 조절되는 방식 때문에, input의 앞이나 뒤에 다른 추가 요소(Add-on)를 더하고 input이 유연하게 빈 공간을 채우도록 동작하게 만드는 것은 거의 불가능했습니다.
 
-The only existing way to do this is to either know the exact width of the input, or to use something like `display:table-cell`, which has its own set of problems, most notably the difficulty with positioning anything absolutely inside of the add-on in certain browsers.
+이를 해결하기 위해 존재하는 방법이란 input의 너비를 정확하게 알고 있거나, 그 자체로 많은 문제를 안고 있는 `display:table-cell` 같은 것을 사용하는 방법 뿐입니다. 그중에서 특히 특정 브라우저에서는 추가 요소 내부에 어떤 것을 절대적으로 위치시키는 것이 매우 어렵습니다.
 
-With Flexbox, all these problems go away, and the code is trivially simple. In addition, you get the input field and the input add-on to be the same height for free.
+Flexbox를 사용하면, 이런 문제들은 모두 사라지고 코드도 간단해집니다. 게다가, 자동으로 input 필드와 추가 요소의 높이도 같아집니다.
 
 <div class="Grid Grid--guttersLg Grid--full med-Grid--fit">
   <div class="Grid-cell">
-    <h2>Add-on Prepended</h2>
+    <h2>앞 쪽의 추가 요소</h2>
     <div class="InputAddOn">
       <span class="InputAddOn-item">Amount</span>
       <input class="InputAddOn-field">
@@ -23,7 +23,7 @@ With Flexbox, all these problems go away, and the code is trivially simple. In a
     </div>
   </div>
   <div class="Grid-cell">
-    <h2>Add-on Appended</h2>
+    <h2>뒤 쪽의 추가 요소</h2>
     <div class="InputAddOn">
       <input class="InputAddOn-field">
       <button class="InputAddOn-item">Go</button>
@@ -35,7 +35,7 @@ With Flexbox, all these problems go away, and the code is trivially simple. In a
   </div>
 </div>
 
-## Appended and Prepended Add-ons
+## 양 쪽의 추가요소
 
 <div class="Grid Grid--guttersLg Grid--full med-Grid--fit">
   <div class="Grid-cell">
@@ -54,22 +54,22 @@ With Flexbox, all these problems go away, and the code is trivially simple. In a
   </div>
 </div>
 
-## The HTML
+## HTML
 
 ```html
-<!-- appending -->
+<!-- 앞 쪽에 추가 -->
 <div class="InputAddOn">
   <input class="InputAddOn-field">
   <button class="InputAddOn-item">…</button>
 </div>
 
-<!-- prepending -->
+<!-- 뒤 쪽에 추가 -->
 <div class="InputAddOn">
   <span class="InputAddOn-item">…</span>
   <input class="InputAddOn-field">
 </div>
 
-<!-- both -->
+<!-- 양 쪽에 추가 -->
 <div class="InputAddOn">
   <span class="InputAddOn-item">…</span>
   <input class="InputAddOn-field">
@@ -77,7 +77,7 @@ With Flexbox, all these problems go away, and the code is trivially simple. In a
 </div>
 ```
 
-## The CSS
+## CSS
 
 ```css
 .InputAddOn {
@@ -95,4 +95,4 @@ With Flexbox, all these problems go away, and the code is trivially simple. In a
 
 ```
 
-View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/input-add-on.css) for the `InputAddOn` component used in this demo on Github.
+이 데모에서 Input 추가요소를 위해 쓰인 전체 [소스 코드](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/grid.css)는 GitHub에서 보실 수 있습니다.

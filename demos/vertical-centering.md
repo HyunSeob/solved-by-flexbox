@@ -1,29 +1,29 @@
 ---
 template: default.html
-title: Vertical Centering
-excerpt: This classic problem has been challenging CSS hackers for years, yet none of the historical solutions have fully solved it. With Flexbox, it's finally possible.
+title: 수직 중앙 정렬
+excerpt: 이 전형적인 문제는 CSS 해커들이 몇 년간 해결하려 노력했지만, 아직까지 유의미한 해결책은 나오지 않았습니다. Flexbox를 사용하면, 마침내 해결이 가능합니다.
 ---
 
-The lack of good ways to vertically center elements in CSS has been a dark blemish on its reputation for pretty much its entire existence.
+CSS에서 요소를 수직적으로 중앙에 정렬하는 좋은 방법이 없다는 것은 CSS 전체를 평가하는 데 있어서 큰 흠집이었습니다.
 
-What makes matters worse is the techniques that do work for vertical centering are obscure and unintuitive, while the obvious choices (like `vertical-align:middle`) never seem to work when you need them.
+문제를 더 크게 만드는 것은 수직 중앙 정렬을 위한 테크닉들이 모호하고 직관적이지 않다는 것이었습니다. 오히려 명백한 코드(`vertical-align:middle` 같은)는 원할 때는 제대로 동작하지 않는 것처럼 보이는데 말이죠.
 
-The current landscape of [vertical centering options](http://css-tricks.com/centering-in-the-unknown/) ranges from negative margins to `display:table-cell` to ridiculous hacks involving full-height pseudo-elements. Yet even though these techniques sometimes get the job done, they don't work in every situation. What if the thing you want to center is of unknown dimensions and isn't the only child of its parent? What if you could use the pseudo-element hack, but you need those pseudo-elements for something else?
+현재 수직 중앙 정렬을 위해 시도할 수 있는 것들은 margin을 음수 값으로 주는 것부터, `display:table-cell` 혹은 가상 요소(pseudo-element)에 꽉찬 높이를 주는 등 어처구니없는 핵(hack)들입니다. 때로는 이런 테크닉을 이용해 일을 마무리했겠지만, 이런 테크닉들은 어떤 상황에는 동작하지 않습니다. 만약 중앙으로 정렬하고 싶은 요소의 크기를 알지 못하고, 그 요소가 부모의 유일한 자식이 아닐경우 어떻게 해야할까요? 가상 요소를 사용해서 해결한 경우, 그 가상 요소를 다른 용도로 써야하는 경우에는 어떻게 해야할까요?
 
-With Flexbox, you can stop worrying. You can align anything (vertically or horizontally) quite painlessly with the `align-items`, `align-self`, and `justify-content` properties.
+Flexbox와 함께라면 더 이상 걱정할 필요가 없습니다. 이제 어떤 것(수직이든 수평이든)이라도 `align-items`, `align-self`, 'justify-content'를 사용하면 힘들이지 않고 정렬할 수 있습니다.
 
 <div class="Demo Demo--spaced u-ieMinHeightBugFix">
   <div class="Aligner">
     <div class="Aligner-item Aligner-item--fixed">
       <div class="Demo">
-        <h3>I'm Centered!</h3>
-        <p contenteditable="true">This box is both vertically and horizontally centered. Even if the text in this box changes to make it wider or taller, the box will still be centered. Go ahead, give it a try. Just click to edit the text.</p>
+        <h3>중앙 정렬됨!</h3>
+        <p contenteditable="true"> 이 박스는 수직, 수평 중앙 정렬되었습니다. 이 박스의 텍스트가 넓어지거나 커지더라도 여전히 중앙 정렬됩니다. 한 번 시도해보세요. 그냥 클릭 후 텍스트를 수정하면 됩니다.</p>
       </div>
     </div>
   </div>
 </div>
 
-Unlike some of the existing vertical alignment techniques, with Flexbox the presence of sibling elements doesn't affect their ability to be vertically aligned.
+기존의 특정 수직 정렬 테크닉과는 다르게, Flexbox를 사용하면 수직 정렬이 다른 형제 요소에 영향을 미치지 않습니다.
 
 <div class="Demo Demo--spaced u-ieMinHeightBugFix">
   <div class="Aligner">
@@ -39,7 +39,7 @@ Unlike some of the existing vertical alignment techniques, with Flexbox the pres
   </div>
 </div>
 
-## The HTML
+## HTML
 
 ```html
 <div class="Aligner">
@@ -49,7 +49,7 @@ Unlike some of the existing vertical alignment techniques, with Flexbox the pres
 </div>
 ```
 
-## The CSS
+## CSS
 
 ```css
 .Aligner {
@@ -71,6 +71,6 @@ Unlike some of the existing vertical alignment techniques, with Flexbox the pres
 }
 ```
 
-View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/aligner.css) for the `Aligner` component used in this demo on Github.
+이 데모에서 `Aligner` 컴포넌트를 위해 쓰인 모든 [소스 코드](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/aligner.css)는 GitHub에서 보실 수 있습니다.
 
-<aside class="Notice"><strong>Note:</strong>&nbsp; the markup and CSS required to make this demo work cross-browser is slightly different from what's shown in the examples above, which assume a fully spec-compliant browser. See the <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/utils/compat.css">comments in the source</a> for more details.</aside>
+<aside class="Notice"><strong>주의:</strong>&nbsp; 이 데모를 크로스 브라우저에서 동작하도록 만드는 CSS는 위의 예제와는 약간 다릅니다. 위의 예제는 스펙이 완전히 구현된 브라우저를 가정합니다. 자세한 내용은 이 <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/utils/compat.css">소스 코드</a>의 주석 부분을 참고해주시기 바랍니다.</aside>

@@ -35,7 +35,7 @@ const DEST = './build';
 /**
  * The name of the Github repo.
  */
-const REPO = 'solved-by-flexbox';
+const REPO = 'solved-by-flexbox-kr';
 
 
 function isProd() {
@@ -251,7 +251,7 @@ gulp.task('deploy', ['default'], function() {
   sh.mkdir('_tmp');
   sh.cd('_tmp');
   sh.exec('git init');
-  sh.exec('git remote add origin git@github.com:philipwalton/' + REPO + '.git');
+  sh.exec('git remote add origin git@github.com:hyunseob/' + REPO + '.git');
   sh.exec('git pull origin gh-pages');
 
   // Delete all the existing files and add

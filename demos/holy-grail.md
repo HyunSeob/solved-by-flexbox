@@ -1,26 +1,26 @@
 ---
 template: holy-grail.html
-title: Holy Grail Layout
-excerpt: This classic problem has been challenging CSS hackers for years, yet none of the historical solutions have fully solved it. With Flexbox, it's finally possible.
+title: 성배 레이아웃
+excerpt: 이 전형적인 문제는 CSS 해커들이 몇 년간 해결하려 노력했지만, 아직까지 유의미한 해결책은 나오지 않았습니다. Flexbox를 사용하면, 마침내 해결이 가능합니다.
 ---
 
-The [Holy Grail Layout](http://en.wikipedia.org/wiki/Holy_Grail_(web_design)) is a classic CSS problem with various solutions presented over time. If you're unfamiliar with the history of the Holy Grail layout, this [A List Apart article](http://alistapart.com/article/holygrail) offers a pretty good summary and links to a few of the more well-known solutions.
+[성배 레이아웃(Holy Grail Layout)](http://en.wikipedia.org/wiki/Holy_Grail_(web_design))은 시간에 따라 다양한 해결방법이 나타난 전형적인 CSS 문제입니다. 만약 성배 레이아웃의 역사에 대해 잘 모르신다면 좋은 요약과 잘 알려진 해결방법을 다루는 [A List Apart의 글](http://alistapart.com/article/holygrail)을 참고하세요.
 
-At its core, the Holy Grail Layout is a page with a header, footer, and three columns. The center column contains the main content, and the left and right columns contain supplemental content like ads or navigation.
+성배 레이아웃의 핵심은 헤더(Header), 푸터(Footer)와 3개의 열(Column)으로 구성된 페이지 레이아웃이라는 것입니다. 중앙에 있는 열은 주요 내용을 담고, 왼쪽 및 오른쪽 열은 내용을 보충하는 광고 혹은 네비게이션을 포함합니다.
 
-Most CSS solutions to this problem aim to meet a few goals:
+이 문제에 대한 대부분의 CSS 해결방법은 몇 가지 목표를 달성하는 것이 목표입니다.
 
-- They should have a fluid center with fixed-width sidebars.
-- The center column (main content) should appear first in the HTML source.
-- All columns should be the same height, regardless of which column is actually the tallest.
-- They should require minimal markup.
-- The footer should "stick" to the bottom of the page when content is sparse.
+- 중단 컨테이너는 유연한 크기를 가지고 사이드바는 고정된 너비를 가져야 합니다.
+- 중단 열(주요 내용)은 HTML 소스상에서 가장 첫 번째에 있어야 합니다.
+- 모든 열은 실제 높이에 관계 없이, 같은 높이를 가져야합니다.
+- 최소한의 마크업만을 필요로 해야합니다.
+- 페이지의 내용이 부족할 때에도 푸터는 하단에 고정되어있어야 합니다.
 
-Unfortunately, because of the nature of these goals and the original limitations of CSS, none of the classic solutions to this problem were ever able to satisfy all of them.
+안타깝게도, 이러한 목표의 성격과 기존 CSS의 한계 때문에, 이 문제에 대한 전통적인 해결법은 모든 사항을 만족 시킬 수 없었습니다.
 
-With Flexbox, a complete solution is finally possible.
+Flexbox를 사용하면, 마침내 완전한 해결방법이 가능하게 되었습니다.
 
-## The HTML
+## HTML
 
 ```html
 <body class="HolyGrail">
@@ -34,9 +34,9 @@ With Flexbox, a complete solution is finally possible.
 </body>
 ```
 
-## The CSS
+## CSS
 
-Getting the center content row to stretch and the footer to stick to the bottom is solved with the same technique shown in the [Sticky Footer](../sticky-footer/) example. The only difference is the center row of the Holy Grail layout (`.HolyGrail-body`) needs to be `display:flex` in order to properly arrange its children.
+푸터를 하단에 고정시키기 위해서 중앙 내용을 늘린 방법은 [고정된 푸터](../sticky-footer/)에서 보여준 예제와 같습니다. 성배 레이아웃 중단 행(`.HolyGrail-body`)의 유일한 차이점은 자식 요소들을 적절히 배열하기 위해 `display:flex`를 필요로 한다는 것뿐입니다.
 
 ```css
 .HolyGrail {
@@ -51,7 +51,7 @@ Getting the center content row to stretch and the footer to stick to the bottom 
 }
 ```
 
-Styling three equal-height columns with a fluid center and fixed-width sidebars is just as easy:
+세 개의 동일한 높이의 열을 가지는 유연한 중단 영역과 고정된 너비의 사이드바를 만드는 것은 다음과 같이 매우 쉽습니다.
 
 ```css
 .HolyGrail-content {
@@ -59,26 +59,25 @@ Styling three equal-height columns with a fluid center and fixed-width sidebars 
 }
 
 .HolyGrail-nav, .HolyGrail-ads {
-  /* 12em is the width of the columns */
+  /* 12em은 열의 너비입니다. */
   flex: 0 0 12em;
 }
 
 .HolyGrail-nav {
-  /* put the nav on the left */
+  /* 좌측에 네비게이션을 놓습니다. */
   order: -1;
 }
 ```
 
-<aside class="Notice"><strong>Note:</strong>&nbsp; the CSS required to make this demo work cross-browser is slightly different from the CSS shown in the examples above, which assume a fully spec-compliant browser. See the <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/holy-grail.css">comments in the source</a> for more details.</aside>
+<aside class="Notice"><strong>주의:</strong>&nbsp; 이 데모를 크로스 브라우저에서 동작하도록 만드는 CSS는 위의 예제와는 약간 다릅니다. 위의 예제는 스펙이 완전히 구현된 브라우저를 가정합니다. 자세한 내용은 이 <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/holy-grail.css">소스 코드</a>의 주석 부분을 참고해주시기 바랍니다.</aside>
 
+### 반응형
 
-### Being Responsive
+성배 레이아웃은 웹 디자인이 컴퓨터에서 하는 브라우징만을 대응하던 시대의 것입니다. 하지만 모바일 기기가 증가하고 반응형 디자인이 떠오르면서 성배 레이아웃은 거의 유행에 뒤처지게 되었습니다.
 
-The Holy Grail layout came from an era of Web design when pretty much everyone was browsing on a computer. But with the increasing number of mobile devices and the rising popularity of responsive design, the Holy Grail layout has gone mostly out of fashion.
+어쨌든, Flexbox를 사용한다면 모바일 퍼스트 혹은 모바일 친화적인 버전의 성배 레이아웃을 만드는 것도 쉽습니다. 요점은 중단 섹션을 기본적으로 `flex-direction:column`을 사용해서 만들고 큰 스크린을 대응하기 위해 `flex-direction:row`를 사용하는 것입니다.
 
-Either way, with Flexbox, creating a mobile-first and mobile-friendly version of the Holy Grail layout is easy. The gist is to simply make the center section `flex-direction:column` by default and then `flex-direction:row` for larger screens.
-
-Here's a complete example that is responsive and mobile-first. You can also resize this browser window to see it in action.
+이 페이지는 반응형이며 모바일 퍼스트인 완전한 예제입니다. 브라우저 창의 크기를 조절함으로써 실제로 어떻게 동작하는 지 볼 수 있습니다.
 
 ```css
 .HolyGrail,
@@ -100,10 +99,10 @@ Here's a complete example that is responsive and mobile-first. You can also resi
     flex: 1;
   }
   .HolyGrail-nav, .HolyGrail-ads {
-    /* 12em is the width of the columns */
+    /* 12em은 열의 너비입니다. */
     flex: 0 0 12em;
   }
 }
 ```
 
-View the full [source](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/holy-grail.css) for the `HolyGrail` component used in this demo on Github.
+성배 레이아웃을 위해 쓰인 전체 [소스 코드](https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/grid.css)를 확인해보세요.
